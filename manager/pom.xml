@@ -106,65 +106,84 @@
         </dependency>
     </dependencies>
 
+    <!--<build>-->
+        <!--<finalName>hertzbeat</finalName>-->
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<filtering>true</filtering>-->
+                <!--<includes>-->
+                    <!--<include>application.yml</include>-->
+                    <!--<include>sureness.yml</include>-->
+                    <!--<include>banner.txt</include>-->
+                    <!--<include>define/**</include>-->
+                    <!--<include>**/*.html</include>-->
+                <!--</includes>-->
+            <!--</resource>-->
+        <!--</resources>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-jar-plugin</artifactId>-->
+                <!--<version>3.2.0</version>-->
+                <!--<configuration>-->
+                    <!--<classesDirectory>target/classes/</classesDirectory>-->
+                    <!--<archive>-->
+                        <!--&lt;!&ndash;生成的jar包不包含maven描述相关文件&ndash;&gt;-->
+                        <!--<addMavenDescriptor>false</addMavenDescriptor>-->
+                        <!--<manifest>-->
+                            <!--&lt;!&ndash;项目启动类&ndash;&gt;-->
+                            <!--<mainClass>com.usthe.manager.Manager</mainClass>-->
+                            <!--<useUniqueVersions>false</useUniqueVersions>-->
+                            <!--&lt;!&ndash;第三方JAR加入类构建的路径maven-dependency-plugin&ndash;&gt;-->
+                            <!--<addClasspath>true</addClasspath>-->
+                            <!--&lt;!&ndash;外部依赖jar包的位置&ndash;&gt;-->
+                            <!--<classpathPrefix>lib/</classpathPrefix>-->
+                        <!--</manifest>-->
+                        <!--<manifestEntries>-->
+                            <!--<Class-Path>. config</Class-Path>-->
+                        <!--</manifestEntries>-->
+                    <!--</archive>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--&lt;!&ndash;关键插件,maven提供的assembly插件,需要放在最后&ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-assembly-plugin</artifactId>-->
+                <!--<version>3.3.0</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>make-zip</id>-->
+                        <!--&lt;!&ndash;绑定的maven操作&ndash;&gt;-->
+                        <!--<phase>package</phase>-->
+                        <!--&lt;!&ndash;运行一次&ndash;&gt;-->
+                        <!--<goals>-->
+                            <!--<goal>single</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<descriptors>-->
+                                <!--<descriptor>../script/assembly/server/assembly.xml</descriptor>-->
+                            <!--</descriptors>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
+
     <build>
-        <finalName>hertzbeat</finalName>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>application.yml</include>
-                    <include>sureness.yml</include>
-                    <include>banner.txt</include>
-                    <include>define/**</include>
-                    <include>**/*.html</include>
-                </includes>
-            </resource>
-        </resources>
         <plugins>
+
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
-                <configuration>
-                    <classesDirectory>target/classes/</classesDirectory>
-                    <archive>
-                        <!--生成的jar包不包含maven描述相关文件-->
-                        <addMavenDescriptor>false</addMavenDescriptor>
-                        <manifest>
-                            <!--项目启动类-->
-                            <mainClass>com.usthe.manager.Manager</mainClass>
-                            <useUniqueVersions>false</useUniqueVersions>
-                            <!--第三方JAR加入类构建的路径maven-dependency-plugin-->
-                            <addClasspath>true</addClasspath>
-                            <!--外部依赖jar包的位置-->
-                            <classpathPrefix>lib/</classpathPrefix>
-                        </manifest>
-                        <manifestEntries>
-                            <Class-Path>. config</Class-Path>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
-            </plugin>
-            <!--关键插件,maven提供的assembly插件,需要放在最后-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.3.0</version>
+                <groupId>com.maplecloudy.osrt</groupId>
+                <artifactId>maplecloudy-osrt-maven-plugin</artifactId>
+                <version>1.0.0-RELEASE</version>
                 <executions>
                     <execution>
-                        <id>make-zip</id>
-                        <!--绑定的maven操作-->
-                        <phase>package</phase>
-                        <!--运行一次-->
                         <goals>
-                            <goal>single</goal>
+                            <goal>repackage</goal>
+                            <!--<goal>install-osrt-app</goal>-->
                         </goals>
-                        <configuration>
-                            <descriptors>
-                                <descriptor>../script/assembly/server/assembly.xml</descriptor>
-                            </descriptors>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

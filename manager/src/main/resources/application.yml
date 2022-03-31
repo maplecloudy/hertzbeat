@@ -21,15 +21,16 @@ sureness:
     - jwt
 
 ---
+
 spring:
   config:
     activate:
       on-profile: prod
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 123456
-    url: jdbc:mysql://localhost:3306/hertzbeat?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: maplecloudy
+    password: Rsjxfyyyzf2021
+    url: jdbc:mysql://dn1.osrt.com:3306/hertzbeat?useUnicode=true&characterEncoding=utf-8&useSSL=false
     platform: mysql
     hikari:
       max-lifetime: 120000
@@ -66,6 +67,6 @@ warehouse:
     td-engine:
       enabled: true
       driver-class-name: com.taosdata.jdbc.rs.RestfulDriver
-      url: jdbc:TAOS-RS://localhost:6041/hertzbeat
-      username: root
-      password: taosdata
+      url: jdbc:TAOS-RS://hwsaas1.taosdata.com:6060/hertzbeat
+      username: aug_wanght
+      password: aug_wanght
