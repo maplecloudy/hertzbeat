@@ -28,9 +28,10 @@ spring:
       on-profile: prod
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: maplecloudy
-    password: Rsjxfyyyzf2021
-    url: jdbc:mysql://dn1.osrt.com:3306/hertzbeat?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: test
+    password: test
+    url: jdbc:mysql://test.com:3306/hertzbeat?useUnicode=true&characterEncoding
+    =utf-8&useSSL=false
     platform: mysql
     hikari:
       max-lifetime: 120000
